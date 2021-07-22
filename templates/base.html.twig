@@ -2,18 +2,334 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="keywords" content="MediaCenter, Template, eCommerce">
+        <meta name="robots" content="all">
+        <title>{% block title %}Njaboot-Service{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
+
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+
+        <!-- Customizable CSS -->
+        <link rel="stylesheet" href="{{asset('css/main.css')}}">
+        <link rel="stylesheet" href="{{asset('css/blue.css')}}">
+        <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
+        <link rel="stylesheet" href="{{asset('css/owl.transitions.css')}}">
+        <link rel="stylesheet" href="{{asset('css/animate.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/rateit.css')}}">
+        <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
+
+        <!-- Icons/Glyphs -->
+        <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
+        <link rel="stylesheet" href="{{asset('css/simple-line-icons.css')}}">
+        <link rel="stylesheet" href="{{asset('css/simple-line-icons.css')}}">
+
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
         {% endblock %}
 
+    </head>
+    <body class="cnt-home">
+    <header class="header-style-1"> 
+  
+  <!-- ============================================== TOP MENU ============================================== -->
+  <div class="top-bar animate-dropdown">
+    <div class="container">
+      <div class="header-top-inner">
+        <div class="cnt-account">
+          <ul class="list-unstyled">
+          
+            <li><a href="#"><i class="icon fa fa-lock"></i>Se connecter</a></li>
+            <li><a href="#"><i class="icon fa fa-sign-in"></i>S'inscrire</a></li>
+          </ul>
+        </div>
+        <!-- /.cnt-account -->
+        
+        
+        <!-- /.cnt-cart -->
+        <div class="clearfix"></div>
+      </div>
+      <!-- /.header-top-inner --> 
+    </div>
+    <!-- /.container --> 
+  </div>
+  <!-- /.header-top --> 
+  <!-- ============================================== TOP MENU : END ============================================== -->
+  <div class="main-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 logo-holder"> 
+          <!-- ============================================================= LOGO ============================================================= -->
+          <div class="logo"> <a href="home.html"> <img src="{{asset('images/njaboot.png')}}" alt="logo"> </a> </div>
+          <!-- /.logo --> 
+          <!-- ============================================================= LOGO : END ============================================================= --> </div>
+        <!-- /.logo-holder -->
+        
+        <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder"> 
+          <!-- /.contact-row --> 
+          <!-- ============================================================= SEARCH AREA ============================================================= -->
+          <div class="search-area">
+            <form>
+              <div class="control-group">
+                <ul class="categories-filter animate-dropdown">
+                  <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="#">Categories <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" >
+                      <li class="menu-header">Produits Njaboot</li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">- Pack kheweul</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">- Pack sakanal</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">- Pack VIP</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">- Pack grossiste</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <input class="search-field" placeholder="Search here..." />
+                <a class="search-button" href="#" ></a> </div>
+            </form>
+          </div>
+          <!-- /.search-area --> 
+          <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
+        <!-- /.top-search-holder -->
+        
+        <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row"> 
+          <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
+          
+          <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
+            <div class="items-cart-inner">
+              <div class="basket"></div>
+              <div class="basket-item-count"><span class="count">2</span></div>
+              <div class="total-price-basket"> <span class="lbl"></span> <span class="total-price"> <span class="sign">F Cfa</span><span class="value">12 000</span> </span> </div>
+            </div>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <div class="cart-item product-summary">
+                  <div class="row">
+                    <div class="col-xs-4">
+                      <div class="image"> <a href="#"><img src="{{asset('images/pack/cart.jfif')}}" alt=""></a> </div>
+                    </div>
+                    <div class="col-xs-7">
+                      <h3 class="name"><a href="index8a95.html?page-detail">Produit alimentaire</a></h3>
+                      <div class="price">12 000F Cfa</div>
+                    </div>
+                    <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div>
+                  </div>
+                </div>
+                <!-- /.cart-item -->
+                <div class="clearfix"></div>
+                <hr>
+                <div class="clearfix cart-total">
+                  <div class="pull-right"> <span class="text">Total :</span><span class='price'>12 000F Cfa</span> </div>
+                  <div class="clearfix"></div>
+                  <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Valider panier</a> </div>
+                <!-- /.cart-total--> 
+                
+              </li>
+            </ul>
+            <!-- /.dropdown-menu--> 
+          </div>
+          <!-- /.dropdown-cart --> 
+          
+          <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= --> </div>
+        <!-- /.top-cart-row --> 
+      </div>
+      <!-- /.row --> 
+      
+    </div>
+    <!-- /.container --> 
+    
+  </div>
+  <!-- /.main-header --> 
+  
+  <!-- ============================================== NAVBAR ============================================== -->
+  <div class="header-nav animate-dropdown">
+    <div class="container">
+      <div class="yamm navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+       <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> 
+       <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+        <div class="nav-bg-class">
+          <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
+            <div class="nav-outer">
+              <ul class="nav navbar-nav">
+                <li class="active dropdown yamm-fw"> <a href="#" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">L'offre</a> </li>
+                <li class="dropdown yamm mega-menu"> <a href="#" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Nos Produits</a></li>
+                <li class="dropdown mega-menu"> 
+                <a href="#"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Nos packs <span class="menu-label hot-menu hidden-xs">hot</span> </a>
+            
+                </li>
+                <li class="dropdown hidden-sm"> <a href="#">Nouveauté <span class="menu-label new-menu hidden-xs">new</span> </a> </li>
+              
+               
+                <li class="dropdown  navbar-right special-menu"> <a href="#">Promos</a> </li>
+              </ul>
+              <!-- /.navbar-nav -->
+              <div class="clearfix"></div>
+            </div>
+            <!-- /.nav-outer --> 
+          </div>
+          <!-- /.navbar-collapse --> 
+          
+        </div>
+        <!-- /.nav-bg-class --> 
+      </div>
+      <!-- /.navbar-default --> 
+    </div>
+    <!-- /.container-class --> 
+    
+  </div>
+  <!-- /.header-nav --> 
+  <!-- ============================================== NAVBAR : END ============================================== --> 
+  
+</header>
+
+        {% block body %}
+        
+        
+        {% endblock %}
+    </body>
+
+    <footer id="footer" class="footer color-bg">
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="module-heading">
+            <h4 class="module-title">Contactez-nous</h4>
+          </div>
+          <!-- /.module-heading -->
+          
+          <address>
+            <ul class="toggle-footer">
+              <li class="media">
+                <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i> </span> </div>
+                <div class="media-body">
+                  <p>Dakar-Sénégal</p>
+                </div>
+              </li>
+              <li class="media">
+                <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-mobile fa-stack-1x fa-inverse"></i> </span> </div>
+                <div class="media-body">
+                  <p>+221774541258<br>
+                    +221769587452</p>
+                </div>
+              </li>
+              <li class="media">
+                <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-envelope fa-stack-1x fa-inverse"></i> </span> </div>
+                <div class="media-body outer-top-xsm"> <span><a href="#">shop@njaboot.com</a></span> </div>
+              </li>
+            </ul>
+          </address>
+          <!-- /.module-body --> 
+        </div>
+        <!-- /.col -->
+        
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="module-heading">
+            <h4 class="module-title"> Service client</h4>
+          </div>
+          <!-- /.module-heading -->
+          
+          <div class="module-body">
+            <ul class='list-unstyled'>
+              <li class="first"><a href="#" title="Contact us">Mon compte</a></li>
+              <li><a href="#" title="About us">Mes commandes</a></li>
+              <li><a href="#" title="faq">FAQ</a></li>
+              <li><a href="#" title="Popular Searches">Autres</a></li>
+              <li class="last"><a href="#" title="Where is my order?">Call Center</a></li>
+            </ul>
+          </div>
+          <!-- /.module-body --> 
+        </div>
+        <!-- /.col -->
+        
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="module-heading">
+            <h4 class="module-title">L'entreprise</h4>
+          </div>
+          <!-- /.module-heading -->
+          
+          <div class="module-body">
+            <ul class='list-unstyled'>
+              <li class="first"><a title="Your Account" href="#">A propos</a></li>
+              <li><a title="Information" href="#">Service aprés vente</a></li>
+              <li><a title="Addresses" href="#">Fournisseurs</a></li>
+              <li><a title="Addresses" href="#">Investiteurs</a></li>
+              <li class="last"><a title="Orders History" href="#">Perspectives</a></li>
+            </ul>
+          </div>
+          <!-- /.module-body --> 
+        </div>
+        <!-- /.col -->
+        
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="module-heading">
+            <h4 class="module-title">Pourquoi Choisir Njaboot</h4>
+          </div>
+          <!-- /.module-heading -->
+          
+          <div class="module-body">
+            <ul class='list-unstyled'>
+              <li class="first"><a href="#" title="About us">Prix imbattable</a></li>
+              <li><a href="#" title="Blog">SAV dynamique</a></li>
+              <li><a href="#" title="Company">Produits sains</a></li>
+              <li><a href="#" title="Investor Relations">Made in Sénégal</a></li>
+              <li class=" last"><a href="contact-us.html" title="Suppliers">Contactez-nous</a></li>
+            </ul>
+          </div>
+          <!-- /.module-body --> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyright-bar">
+    <div class="container">
+      <div class="col-xs-12 col-sm-6 no-padding social">
+        <ul class="link">
+          <li class="fb pull-left"><a target="_blank" rel="nofollow" href="#" title="Facebook"></a></li>
+          <li class="tw pull-left"><a target="_blank" rel="nofollow" href="#" title="Twitter"></a></li>
+          <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="#" title="GooglePlus"></a></li>
+          <li class="rss pull-left"><a target="_blank" rel="nofollow" href="#" title="RSS"></a></li>
+          <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="#" title="PInterest"></a></li>
+          <li class="linkedin pull-left"><a target="_blank" rel="nofollow" href="#" title="Linkedin"></a></li>
+          <li class="youtube pull-left"><a target="_blank" rel="nofollow" href="#" title="Youtube"></a></li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-6 no-padding">
+        <div class="add-cart-button btn-group">
+          <button class="cart-btn-bg" type="button">Ajouter au panier</button>
+        </div>
+        <!-- /.payment-methods --> 
+      </div>
+    </div>
+  </div>
+</footer>
+    
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
+            <!-- JavaScripts placed at the end of the document so the pages load faster --> 
+            <script src="{{asset('js/jquery-1.11.1.min.js')}}"></script> 
+            <script src="{{asset('js/bootstrap.min.js')}}"></script> 
+            <script src="{{asset('js/bootstrap-hover-dropdown.min.js')}}"></script> 
+            <script src="{{asset('js/owl.carousel.min.js')}}"></script> 
+            <script src="{{asset('js/countdown.js')}}"></script> 
+            <script src="{{asset('js/echo.min.js')}}"></script> 
+            <script src="{{asset('js/jquery.easing-1.3.min.js')}}"></script> 
+            <script src="{{asset('js/bootstrap-slider.min.js')}}"></script> 
+            <script src="{{asset('js/jquery.rateit.min.js')}}"></script> 
+            <script src="{{asset('js/lightbox.min.js')}}"></script> 
+            <script src="{{asset('js/bootstrap-select.min.js')}}"></script> 
+            <script src="{{asset('js/wow.min.js')}}"></script> 
+            <script src="{{asset('js/scripts.js')}}"></script>
+
         {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
 </html>

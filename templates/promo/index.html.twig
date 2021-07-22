@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="body-content outer-top-xs">
+	<div class="container">
+    <div class="product-comparison">
+		<div>
+			<h1 class="page-title text-center heading-title">Promotion Njaboot</h1>
+			<div class="table-responsive">
+				<table class="table compare-table inner-top-vs">
+                 {% for promo in promos %}
+					<tr>
+						<th>Produits</th>
+
+						<td>
+							<div class="product">
+								<div class="product-image">
+									<div class="image">
+										<a href="detail.html">
+										    <img alt="" src="{{asset('images/pack/images (3).jfif')}}">
+										</a>
+									</div>
+
+									<div class="product-info text-left">
+										<h3 class="name"><a href="detail.html">Test</a></h3>
+										<div class="action">
+										    <a class="lnk btn btn-primary" href="#">Voir</a>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<th>Prix</th>
+						
+
+
+						<td>
+                             
+							<div class="product-price">
+								<span class="price"> {{ promo.prixPromo }} </span>
+								<span class="price-before-discount">-50%</span>
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<th>Description</th>
+					        <td>{{ promo.descPromo }}</td>
+                    </tr>
+
+					<tr>
+						 <th>Diponibilité</th>
+	                     <td><p class="in-stock">In Stock</p></td>
+	                     <td><p class="in-stock">In Stock</p></td>
+	                     <td><p class="in-stock">In Stock</p></td>
+	                     <td><p class="in-stock">In Stock</p></td>
+					</tr>
+
+					<tr >
+						<th>Date Début</th>
+						<td>{{ promo.dateDebut ? promo.dateDebut|date('Y-m-d') : '' }}</td>
+					</tr>
+
+					<tr >
+						<th>Date Fin</th>
+						<td>{{ promo.dateFin ? promo.dateFin|date('Y-m-d') : '' }}</td>
+					</tr>
+                        {% else %}
+                         <tr>
+                                 <td colspan="12" class="alert alert-warning">Aucune promotion pour le moment</td>
+                         </tr>
+                          {% endfor %}
+				</table>
+
+			</div>
+            </div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
