@@ -48,8 +48,8 @@
         <div class="cnt-account">
           <ul class="list-unstyled">
           
-            <li><a href="#"><i class="icon fa fa-lock"></i>Se connecter</a></li>
-            <li><a href="#"><i class="icon fa fa-sign-in"></i>S'inscrire</a></li>
+            <li><a href="{{ path('app_login') }}"><i class="icon fa fa-lock"></i>Se connecter</a></li>
+            <li><a href="{{ path('app_register') }}"><i class="icon fa fa-sign-in"></i>S'inscrire</a></li>
           </ul>
         </div>
         <!-- /.cnt-account -->
@@ -69,7 +69,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-3 logo-holder"> 
           <!-- ============================================================= LOGO ============================================================= -->
-          <div class="logo"> <a href="home.html"> <img src="{{asset('images/njaboot.png')}}" alt="logo"> </a> </div>
+          <div class="logo"> <a href="{{ path('index') }}"> <img src="{{asset('images/njaboot.png')}}" alt="logo"> </a> </div>
           <!-- /.logo --> 
           <!-- ============================================================= LOGO : END ============================================================= --> </div>
         <!-- /.logo-holder -->
@@ -102,11 +102,11 @@
         <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row"> 
           <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
           
-          <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
+          <div class="dropdown dropdown-cart"> <a href="{{ path('panier') }}" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
             <div class="items-cart-inner">
               <div class="basket"></div>
-              <div class="basket-item-count"><span class="count">2</span></div>
-              <div class="total-price-basket"> <span class="lbl"></span> <span class="total-price"> <span class="sign">F Cfa</span><span class="value">12 000</span> </span> </div>
+              <div class="basket-item-count"><span class="count"></span></div>
+              <div class="total-price-basket"> <span class="lbl"></span> <span class="total-price"> <span class="sign"></span><span class="value"></span> </span> </div>
             </div>
             </a>
             <ul class="dropdown-menu">
@@ -117,8 +117,8 @@
                       <div class="image"> <a href="#"><img src="{{asset('images/pack/cart.jfif')}}" alt=""></a> </div>
                     </div>
                     <div class="col-xs-7">
-                      <h3 class="name"><a href="index8a95.html?page-detail">Produit alimentaire</a></h3>
-                      <div class="price">12 000F Cfa</div>
+                      <h3 class="name"><a href="{{ path('panier') }}">Produit alimentaire</a></h3>
+                      <div class="price"></div>
                     </div>
                     <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div>
                   </div>
@@ -127,9 +127,9 @@
                 <div class="clearfix"></div>
                 <hr>
                 <div class="clearfix cart-total">
-                  <div class="pull-right"> <span class="text">Total :</span><span class='price'>12 000F Cfa</span> </div>
+                  <div class="pull-right"> <span class="text"></span><span class='price'></span> </div>
                   <div class="clearfix"></div>
-                  <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Valider panier</a> </div>
+                  <a href="{{ path('panier') }}" class="btn btn-upper btn-primary btn-block m-t-20">Panier</a> </div>
                 <!-- /.cart-total--> 
                 
               </li>
@@ -161,16 +161,16 @@
           <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
             <div class="nav-outer">
               <ul class="nav navbar-nav">
-                <li class="active dropdown yamm-fw"> <a href="#" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">L'offre</a> </li>
-                <li class="dropdown yamm mega-menu"> <a href="#" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Nos Produits</a></li>
+                <li class="active dropdown yamm-fw"> <a href="{{ path('index') }}" >L'offre</a> </li>
+                <li class="dropdown yamm mega-menu"> <a href="{{ path('produits_index') }}" >Nos Produits</a></li>
                 <li class="dropdown mega-menu"> 
-                <a href="#"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Nos packs <span class="menu-label hot-menu hidden-xs">hot</span> </a>
+                <a href="{{ path('pack_njaboot') }}">Nos packs </a>
             
                 </li>
                 <li class="dropdown hidden-sm"> <a href="#">Nouveauté <span class="menu-label new-menu hidden-xs">new</span> </a> </li>
               
                
-                <li class="dropdown  navbar-right special-menu"> <a href="#">Promos</a> </li>
+                <li class="dropdown  navbar-right special-menu"> <a href="{{ path('promo_index') }}">Promos</a> </li>
               </ul>
               <!-- /.navbar-nav -->
               <div class="clearfix"></div>
@@ -219,8 +219,8 @@
               <li class="media">
                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-mobile fa-stack-1x fa-inverse"></i> </span> </div>
                 <div class="media-body">
-                  <p>+221774541258<br>
-                    +221769587452</p>
+                  <p>+221330000000<br>
+                    +0695800000000</p>
                 </div>
               </li>
               <li class="media">
@@ -261,7 +261,7 @@
           <div class="module-body">
             <ul class='list-unstyled'>
               <li class="first"><a title="Your Account" href="#">A propos</a></li>
-              <li><a title="Information" href="#">Service aprés vente</a></li>
+              <li><a title="Information" href="#">Service Aprés Vente</a></li>
               <li><a title="Addresses" href="#">Fournisseurs</a></li>
               <li><a title="Addresses" href="#">Investiteurs</a></li>
               <li class="last"><a title="Orders History" href="#">Perspectives</a></li>
@@ -280,7 +280,7 @@
           <div class="module-body">
             <ul class='list-unstyled'>
               <li class="first"><a href="#" title="About us">Prix imbattable</a></li>
-              <li><a href="#" title="Blog">SAV dynamique</a></li>
+              <li><a href="#" title="Blog">SAV dynamique &amp; proactif</a></li>
               <li><a href="#" title="Company">Produits sains</a></li>
               <li><a href="#" title="Investor Relations">Made in Sénégal</a></li>
               <li class=" last"><a href="contact-us.html" title="Suppliers">Contactez-nous</a></li>
@@ -305,9 +305,7 @@
         </ul>
       </div>
       <div class="col-xs-12 col-sm-6 no-padding">
-        <div class="add-cart-button btn-group">
-          <button class="cart-btn-bg" type="button">Ajouter au panier</button>
-        </div>
+        
         <!-- /.payment-methods --> 
       </div>
     </div>

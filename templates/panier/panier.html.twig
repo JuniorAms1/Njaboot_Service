@@ -10,15 +10,16 @@
 				<div class="shopping-cart-table ">
 	<div class="table-responsive">
 		<table class="table">
-			<thead>
+		{% if items | length > 0 %}
+				<thead>
 				<tr>
 					<th class="cart-romove item">Retirer</th>
 					<th class="cart-description item">Image</th>
+					<th class="cart-product-name item">Produits</th>
 					<th class="cart-product-name item">Description</th>
-					<th class="cart-edit item">Editer</th>
 					<th class="cart-qty item">Quantité</th>
-					<th class="cart-sub-total item">Total</th>
-					<th class="cart-total last-item">Total+Livraison</th>
+					<th class="cart-sub-total item">Prix</th>
+					<th class="cart-total last-item">Livraison</th>
 				</tr>
 			</thead><!-- /thead -->
 			<tfoot>
@@ -34,62 +35,34 @@
 				</tr>
 			</tfoot>
 			<tbody>
+			{% for item in items %}
 				<tr>
-					<td class="romove-item"><a href="#" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
+					<td class="romove-item"><a href="{{ path('panier_remove', {'id': item.produit.id}) }}" title="Retirer" class="icon"><i class="fa fa-trash-o"></i></a></td>
 					<td class="cart-image">
 						<a class="entry-thumbnail" href="detail.html">
-						    <img src="{{asset('images/pack/pack-alimentaire-small.jpg')}}" alt="">
+						   <img src="{{ vich_uploader_asset(item.produit, 'imageFile')}}" alt="">
 						</a>
 					</td>
-					<td class="cart-product-name-info">
-						<h4 class='cart-product-description'><a href="detail.html">Teuuusss life</a></h4>
 					
-						<div class="cart-product-info">
-											<span class="product-color">lorem:<span>ipumm</span></span>
-						</div>
+					<td class="cart-product-description"><h5>{{ item.produit.nomProd }}</h5></td>
+					<td class="cart-product-name-info">
+						<h5 class='cart-product-description'>{{ item.produit.descProd }}</h5>
 					</td>
-					<td class="cart-product-edit"><a href="#" class="product-edit">Editer</a></td>
 					<td class="cart-product-quantity">
 						<div class="quant-input">
 				                <div class="arrows">
 				                  <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
 				                  <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
 				                </div>
-				                <input type="text" value="1">
+				                <input type="text" value="{{ item.quantity }}">
 			              </div>
 		            </td>
-					<td class="cart-product-sub-total"><span class="cart-sub-total-price">3000F</span></td>
-					<td class="cart-product-grand-total"><span class="cart-grand-total-price">3000F</span></td>
+					<td class="cart-product-sub-total"><span class="cart-sub-total-price">{{ item.produit.prixHt }}</span></td>
+					<td class="cart-product-grand-total"><span class="cart-grand-total-price">{{ item.produit.prixTTC }}</span></td>
 				</tr>
-				<tr>
-					<td class="romove-item"><a href="#" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
-					<td class="cart-image">
-						<a class="entry-thumbnail" href="detail.html">
-						    <img src="{{asset('images/pack/téléchargement (7).jfif')}}" alt="">
-						</a>
-					</td>
-					<td class="cart-product-name-info">
-						<h4 class='cart-product-description'><a href="detail.html">Meww</a></h4>
-						
-						<div class="cart-product-info">
-						<span class="product-color">lorfm:<span>ipom</span></span>
-						</div>
-					</td>
-					<td class="cart-product-edit"><a href="#" class="product-edit">Editer</a></td>
-					<td class="cart-product-quantity">
-						<div class="cart-quantity">
-							<div class="quant-input">
-				                <div class="arrows">
-				                  <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-				                  <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
-				                </div>
-				                <input type="text" value="1">
-			              </div>
-			            </div>
-		            </td>
-					<td class="cart-product-sub-total"><span class="cart-sub-total-price">3000F</span></td>
-					<td class="cart-product-grand-total"><span class="cart-grand-total-price">3000F</span></td>
-				</tr>
+				
+			{% endfor %}
+				
 			</tbody><!-- /tbody -->
 		</table><!-- /table -->
 	</div>
@@ -102,10 +75,10 @@
 			<tr>
 				<th>
 					<div class="cart-sub-total">
-						Total<span class="inner-left-md">6000F</span>
+						Total<span class="inner-left-md">{{total}}</span>
 					</div>
 					<div class="cart-grand-total">
-						Total+Livraison<span class="inner-left-md">9000F</span>
+						Total+Livraison<span class="inner-left-md">{{totalLivraison}}</span>
 					</div>
 				</th>
 			</tr>
@@ -120,6 +93,10 @@
 					</td>
 				</tr>
 		</tbody><!-- /tbody -->
+		{% else %}
+			<p>Aucun produit n'a été ajouté dans le panier</p>
+		{% endif %}
+		
 	</table><!-- /table -->
     </div>
 </div><!-- /.cart-shopping-total -->		

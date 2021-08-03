@@ -23,7 +23,7 @@ class PromoType extends AbstractType
                 'choice_label' => 'id'
         ])
         ;
-    }
+       }
 
     public function configureOptions(OptionsResolver $resolver)
     {

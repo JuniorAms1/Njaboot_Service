@@ -90,7 +90,7 @@
                <!-- ============================================== SCROLL TABS ============================================== -->
         <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
           <div class="more-info-tab clearfix ">
-            <h3 class="new-product-title pull-left"> Pack Sakanal</h3>
+            <h3 class="new-product-title pull-left"> A propos de Njaboot</h3>
 
             
             <!-- /.nav-tabs --> 
@@ -98,54 +98,22 @@
           <div class="tab-content">
             <div class="tab-pane in active">
               <div class="product-slider">
-                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
-                 {% for i in 0..8 %}
-                  <div class="item item-carousel">
-                    <div class="products">
-                      <div class="product">
-                        <div class="product-image">
-                          <div class="image"> <a href="#"><img  src="{{asset('images/pack/pack-alimentaire-small.jpg')}}" alt=""></a> </div>
-                          <!-- /.image -->
-                          
-                          <div class="tag new"><span>new</span></div>
-                        </div>
-                        <!-- /.product-image -->
-                        
-                        <div class="product-info text-left">
-                          <h3 class="name"><a href="#">lorem</a></h3>
-                          <div class="rating rateit-small"></div>
-                          <div class="description"></div>
-                          <div class="product-price"> <span class="price"> 7 500F </span> <span class="price-before-discount">12 500F</span> </div>
-                          <!-- /.product-price --> 
-                          
-                        </div>
-                        <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              
-                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="{{ path('detail_produit') }}" title="Details"> <i class="icon fa fa-search"></i> </a> </li>
-                             
-                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" title="Ajouter au panier" href="{{ path('panier') }}"> <i class="fa fa-shopping-cart"></i> </a> </li>
-                             
-                              </ul>
-                          </div>
-                          <!-- /.action --> 
-                        </div>
-                        <!-- /.cart --> 
-                      </div>
-                      <!-- /.product --> 
-                      
-                    </div>
-                    <!-- /.products --> 
-                  </div>
-                  <!-- /.item -->
-                  {% endfor %}
-             
-                  
-               
-                  
-                 
+                <div class="text-center">
+           
+                    <p style="font-size:20px">
+                   <b>Njaboot Service</b> est un service d’achat qui permet à ses clients d’acheter des produits alimentaires
+                    via une plateforme web avec un système de paiement allégé et économique.
+                    <br>
+On entend par système de paiement allégé par :<br>
+► Nos clients paient à la livraison grâce à la facture qu’elle aura reçu par mail
+<br>
+Notre système de vente repose sur la vente par pack des produits disponibles chez nos fournisseurs en 
+sachet et qui sont vendus à l’unité plus chère.
+<br>
+Ici vous êtes maitre de vos achats et de votre portefeuille.
+
+
+                    </p>
                 </div>
                 <!-- /.home-owl-carousel --> 
               </div>
@@ -162,7 +130,7 @@
 
          <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
           <div class="more-info-tab clearfix ">
-            <h3 class="new-product-title pull-left"> Pack kheweul</h3>
+            <h3 class="new-product-title pull-left"> Pack Sakanal</h3>
 
             
             <!-- /.nav-tabs --> 
@@ -171,23 +139,30 @@
             <div class="tab-pane in active">
               <div class="product-slider">
                 <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
-                 {% for i in 0..6 %}
+               
+               
+                   {% for produit in produits %}
+                                       
+                            {% if produit.categorie.nom is same as("Pack Sakanal") %}
+                                
+                    
                   <div class="item item-carousel">
                     <div class="products">
                       <div class="product">
                         <div class="product-image">
-                          <div class="image"> <a href="#"><img  src="{{asset('images/pack/téléchargement (7).jfif')}}" alt=""></a> </div>
+                          <div class="image"> 
+                            <img src="{{ vich_uploader_asset(produit, 'imageFile') }}" alt="Produit Njaboot" style="witdh:225px;height:225px;">
+                          </div>
                           <!-- /.image -->
                           
-                          <div class="tag new"><span>new</span></div>
                         </div>
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="#">lorem</a></h3>
+                          <h3 class="name"><a href="#">{{ produit.nomProd }}</a></h3>
                           <div class="rating rateit-small"></div>
-                          <div class="description"></div>
-                          <div class="product-price"> <span class="price"> 7 500F </span> <span class="price-before-discount">12 500F</span> </div>
+                          <div class="description">{{ produit.etat }}</div>
+                          <div class="product-price"> <span class="price">{{ produit.prixHt }}</span> <span class="price-before-discount">{{ produit.prixTTC }}(Livraison)</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
@@ -196,9 +171,9 @@
                           <div class="action">
                             <ul class="list-unstyled">
                               
-                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="{{ path('detail_produit') }}" title="Details"> <i class="icon fa fa-search"></i> </a> </li>
+                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="{{ path('detail_produit', {'id': produit.id}) }}" title="Details"> <i class="icon fa fa-search"></i> </a> </li>
                              
-                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" title="Ajouter au panier" href="{{ path('panier') }}"> <i class="fa fa-shopping-cart"></i> </a> </li>
+                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" title="Ajouter au panier" href="{{ path('panier_add', {'id': produit.id}) }}"> <i class="fa fa-shopping-cart"></i> </a> </li>
                              
                               </ul>
                           </div>
@@ -212,11 +187,12 @@
                     <!-- /.products --> 
                   </div>
                   <!-- /.item -->
-                  {% endfor %}
-             
-                  
-               
-                  
+                            
+                      {% else %}
+                          
+                        {% endif %}
+
+                 {% endfor %}
                  
                 </div>
                 <!-- /.home-owl-carousel --> 
@@ -232,7 +208,87 @@
           <!-- /.tab-content --> 
         </div>
 
-         <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
+          <div class="more-info-tab clearfix ">
+            <h3 class="new-product-title pull-left"> Pack Kheweul</h3>
+
+            
+            <!-- /.nav-tabs --> 
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane in active">
+              <div class="product-slider">
+                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
+               
+               
+                   {% for produit in produits %}
+                                       
+                            {% if produit.categorie.nom is same as("Pack Kheweul") %}
+                                
+                    
+                  <div class="item item-carousel">
+                    <div class="products">
+                      <div class="product">
+                        <div class="product-image">
+                          <div class="image"> 
+                            <img src="{{ vich_uploader_asset(produit, 'imageFile') }}"  alt="Produit Njaboot" style="witdh:225px;height:225px;">
+                          </div>
+                          <!-- /.image -->
+                          
+                        </div>
+                        <!-- /.product-image -->
+                        
+                        <div class="product-info text-left">
+                          <h3 class="name"><a href="#">{{ produit.nomProd }}</a></h3>
+                          <div class="rating rateit-small"></div>
+                          <div class="description">{{ produit.etat }}</div>
+                          <div class="product-price"> <span class="price">{{ produit.prixHt }}</span> <span class="price-before-discount">{{ produit.prixTTC }}(Livraison)</span> </div>
+                          <!-- /.product-price --> 
+                          
+                        </div>
+                        <!-- /.product-info -->
+                        <div class="cart clearfix animate-effect">
+                          <div class="action">
+                            <ul class="list-unstyled">
+                              
+                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="{{ path('detail_produit', {'id': produit.id}) }}" title="Details"> <i class="icon fa fa-search"></i> </a> </li>
+                             
+                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" title="Ajouter au panier" href="{{ path('panier_add', {'id': produit.id}) }}"> <i class="fa fa-shopping-cart"></i> </a> </li>
+                             
+                              </ul>
+                          </div>
+                          <!-- /.action --> 
+                        </div>
+                        <!-- /.cart --> 
+                      </div>
+                      <!-- /.product --> 
+                      
+                    </div>
+                    <!-- /.products --> 
+                  </div>
+                  <!-- /.item -->
+                            
+                      {% else %}
+                          
+                        {% endif %}
+
+                 {% endfor %}
+                 
+                </div>
+                <!-- /.home-owl-carousel --> 
+              </div>
+              <!-- /.product-slider --> 
+            </div>
+            <!-- /.tab-pane -->
+            
+         
+            <!-- /.tab-pane --> 
+            
+          </div>
+          <!-- /.tab-content --> 
+        </div>
+
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
           <div class="more-info-tab clearfix ">
             <h3 class="new-product-title pull-left"> Pack VIP</h3>
 
@@ -243,23 +299,30 @@
             <div class="tab-pane in active">
               <div class="product-slider">
                 <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
-                 {% for i in 0..4 %}
+               
+               
+                   {% for produit in produits %}
+                                       
+                            {% if produit.categorie.nom is same as("Pack VIP") %}
+                                
+                    
                   <div class="item item-carousel">
                     <div class="products">
                       <div class="product">
                         <div class="product-image">
-                          <div class="image"> <a href="#"><img  src="{{asset('images/pack/pack-alimentaire-xlarge.jpg')}}" alt=""></a> </div>
+                          <div class="image"> 
+                            <img src="{{ vich_uploader_asset(produit, 'imageFile') }}"  alt="Produit Njaboot" style="witdh:225px;height:225px;">
+                          </div>
                           <!-- /.image -->
                           
-                          <div class="tag new"><span>new</span></div>
                         </div>
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="#">lorem</a></h3>
+                          <h3 class="name"><a href="#">{{ produit.nomProd }}</a></h3>
                           <div class="rating rateit-small"></div>
-                          <div class="description"></div>
-                          <div class="product-price"> <span class="price"> 7 500F </span> <span class="price-before-discount">12 500F</span> </div>
+                          <div class="description">{{ produit.etat }}</div>
+                          <div class="product-price"> <span class="price">{{ produit.prixHt }}</span> <span class="price-before-discount">{{ produit.prixTTC }}(Livraison)</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
@@ -268,9 +331,9 @@
                           <div class="action">
                             <ul class="list-unstyled">
                               
-                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="{{ path('detail_produit') }}" title="Details"> <i class="icon fa fa-search"></i> </a> </li>
+                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="{{ path('detail_produit', {'id': produit.id}) }}" title="Details"> <i class="icon fa fa-search"></i> </a> </li>
                              
-                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" title="Ajouter au panier" href="{{ path('panier') }}"> <i class="fa fa-shopping-cart"></i> </a> </li>
+                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" title="Ajouter au panier" href="{{ path('panier_add', {'id': produit.id}) }}"> <i class="fa fa-shopping-cart"></i> </a> </li>
                              
                               </ul>
                           </div>
@@ -284,11 +347,12 @@
                     <!-- /.products --> 
                   </div>
                   <!-- /.item -->
-                  {% endfor %}
-             
-                  
-               
-                  
+                            
+                      {% else %}
+                          
+                        {% endif %}
+
+                 {% endfor %}
                  
                 </div>
                 <!-- /.home-owl-carousel --> 

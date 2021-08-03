@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Produits;
 use App\Entity\Promo;
 use App\Form\PromoType;
 use App\Repository\PromoRepository;
+use App\Repository\ProduitsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
