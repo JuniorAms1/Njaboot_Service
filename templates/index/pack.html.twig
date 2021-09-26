@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous nos Packs{% endblock %}
+
+{% block body %}
+
+<div class="body-content">
+	<div class="container">
+		<div class="row">
+			<div class="blog-page">
+			
+				<div class="col-md-9">
+				  {% for categorie in categories %}
+					<div class="blog-post  wow fadeInUp">
+				<h1><a href="blog-details.html">{{ categorie.nom }}</a></h1>
+
+							<p>{{ categorie.description }}.</p>
+
+				</div>
+
+   				{% endfor %}
+
+			</div><!-- /.filters-container -->			
+			
+			
+				<div class="col-md-3">
+				
+					<div class="blog-post  wow fadeInUp">
+						<a href="blog-details.html">
+						<img class="img-responsive" src="{{asset('images/pack/pack.png')}}" alt="">
+						</a>
+					</div>
+
+				</div>
+
+	</div>
+</div>
+   
+{% endblock %}

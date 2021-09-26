@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="body-content">
+	<div class="container">
+		<div class="sign-in-page">
+			<div class="row">
+				<!-- Sign-in -->			
+
+
+<!-- create a new account -->
+<div class="col-lg-12 col-md-6 col-sm-6 create-new-account">
+	<h4 class="checkout-subtitle">Création d'un compte</h4>
+	<p class="text title-tag-line">Créer votre compte pour pouvoir commander sur notre platefome.</p>
+	<form class="register-form outer-top-xs" role="form">
+    
+    {{ form_start(registrationForm) }}
+        
+		<div class="form-group">
+         {{ form_row(registrationForm.email, {
+            label: 'Adresse Email *',
+             attr : { 'class' : 'form-control unicase-form-control text-input' }
+        }) }}
+	    		  	</div>
+          <div class="form-group">
+		   {{ form_row(registrationForm.prenom, {
+            label: 'Prénom *',
+             attr : { 'class' : 'form-control unicase-form-control text-input' }
+        }) }}
+           </div>
+        <div class="form-group">
+		   {{ form_row(registrationForm.nom, {
+            label: 'Nom *',
+             attr : { 'class' : 'form-control unicase-form-control text-input' }
+        }) }}
+           </div>
+        <div class="form-group">
+		    {{ form_row(registrationForm.phone, {
+            label: 'Téléphone *',
+             attr : { 'class' : 'form-control unicase-form-control text-input' }
+        }) }}
+        </div>
+        <div class="form-group">
+		    {{ form_row(registrationForm.plainPassword.first, {
+            label: 'Mot de passe *',
+             attr : { 'class' : 'form-control unicase-form-control text-input' }
+        }) }}
+        </div>
+
+		    <div class="form-group">
+		    {{ form_row(registrationForm.plainPassword.second, {
+            label: 'Confirmer MDP *',
+             attr : { 'class' : 'form-control unicase-form-control text-input' }
+        }) }}
+            </div>	
+
+              <div class="form-group">
+         {{ form_row(registrationForm.agreeTerms) }}
+              </div>
+       
+	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">S'inscrire</button>
+            {{ form_end(registrationForm) }}
+	</form>
+	
+	
+</div>	
+<!-- create a new account -->		
+	</div><!-- /.row -->
+    </div><!-- /.sigin-in-->
+		</div><!-- /.body-content -->
+
+{% endblock %}

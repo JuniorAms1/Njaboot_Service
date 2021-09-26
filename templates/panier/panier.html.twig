@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<div class="body-content outer-top-xs">
+	<div class="container">
+		<div>
+			<div class="shopping-cart">
+				<div class="shopping-cart-table ">
+	<div class="table-responsive">
+		<table class="table">
+		{% if items | length > 0 %}
+				<thead>
+				<tr>
+					<th class="cart-romove item">Retirer</th>
+					<th class="cart-description item">Image</th>
+					<th class="cart-product-name item">Produits</th>
+					<th class="cart-product-name item">Description</th>
+					<th class="cart-qty item">Quantité</th>
+					<th class="cart-sub-total item">Prix</th>
+					<th class="cart-total last-item">Livraison</th>
+				</tr>
+			</thead><!-- /thead -->
+			<tfoot>
+				<tr>
+					<td colspan="7">
+						<div class="shopping-cart-btn">
+							<span class="">
+								<a href="#" class="btn btn-upper btn-primary outer-left-xs">Continuer Achat</a>
+								<a href="#" class="btn btn-upper btn-primary pull-right outer-right-xs">Modifier panier</a>
+							</span>
+						</div><!-- /.shopping-cart-btn -->
+					</td>
+				</tr>
+			</tfoot>
+			<tbody>
+			{% for item in items %}
+				<tr>
+					<td class="romove-item"><a href="{{ path('panier_remove', {'id': item.produit.id}) }}" title="Retirer" class="icon"><i class="fa fa-trash-o"></i></a></td>
+					<td class="cart-image">
+						<a class="entry-thumbnail" href="detail.html">
+						   <img src="{{ vich_uploader_asset(item.produit, 'imageFile')}}" alt="">
+						</a>
+					</td>
+					
+					<td class="cart-product-description"><h5>{{ item.produit.nomProd }}</h5></td>
+					<td class="cart-product-name-info">
+						<h5 class='cart-product-description'>{{ item.produit.descProd }}</h5>
+					</td>
+					<td class="cart-product-quantity">
+						<div class="quant-input">
+				                <div class="arrows">
+				                  <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
+				                  <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
+				                </div>
+				                <input type="text" value="{{ item.quantity }}">
+			              </div>
+		            </td>
+					<td class="cart-product-sub-total"><span class="cart-sub-total-price">{{ item.produit.prixHt }}</span></td>
+					<td class="cart-product-grand-total"><span class="cart-grand-total-price">{{ item.produit.prixTTC }}</span></td>
+				</tr>
+				
+			{% endfor %}
+				
+			</tbody><!-- /tbody -->
+		</table><!-- /table -->
+	</div>
+</div><!-- /.shopping-cart-table -->			
+
+<div class="col-lg-12 col-md-4 col-sm-12">
+<div class="cart-shopping-total">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					<div class="cart-sub-total">
+						Total<span class="inner-left-md">{{total}}</span>
+					</div>
+					<div class="cart-grand-total">
+						Total+Livraison<span class="inner-left-md">{{totalLivraison}}</span>
+					</div>
+				</th>
+			</tr>
+		</thead><!-- /thead -->
+		<tbody>
+				<tr>
+					<td>
+						<div class="cart-checkout-btn pull-right">
+							<button type="submit" class="btn btn-primary checkout-btn">Commander</button>
+							<span class="">Addresse de livraison!</span>
+						</div>
+					</td>
+				</tr>
+		</tbody><!-- /tbody -->
+		{% else %}
+			<p>Aucun produit n'a été ajouté dans le panier</p>
+		{% endif %}
+		
+	</table><!-- /table -->
+    </div>
+</div><!-- /.cart-shopping-total -->		
+	</div><!-- /.shopping-cart -->
+		</div> <!-- /.row -->
+		<!-- ============================================== BRANDS CAROUSEL ============================================== -->
+
+<!-- ============================================== BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
+</div><!-- /.body-content -->
+
+{% endblock %}
